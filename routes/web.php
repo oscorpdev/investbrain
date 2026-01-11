@@ -30,6 +30,11 @@ Route::middleware(['auth:sanctum', 'web'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 
+    // 2FA Setup route
+    Route::get('/two-factor/setup', function () {
+        return view('auth.two-factor-setup');
+    })->name('two-factor.setup');
+
     Route::view('/import-export', 'import-export.show')
         ->name('import-export')
         ->when(! config('investbrain.self_hosted'), function ($route) {

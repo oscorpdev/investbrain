@@ -60,6 +60,39 @@ http://localhost:8000/register
 
 Congrats! You've just installed Investbrain!
 
+## VPS Deployment
+
+For production deployments, Investbrain is configured and ready to run on the following VPS:
+
+**oscorpholding-vps (TransIP)**
+
+| Property | Value |
+| ------------- | ------------- |
+| **Location** | Amsterdam (AMS0) |
+| **CPU** | 1 shared core |
+| **RAM** | 2048 MB |
+| **Storage** | 100 GB |
+| **IP Address (IPv4)** | 84.247.8.3 |
+| **IP Address (IPv6)** | 2a01:7c8:bb01:f3::/64 |
+| **Network Speed** | 1/1 GBps (in/out) |
+| **Snapshots** | 1 available |
+
+### SSH Access
+
+Connect to the VPS via SSH using the following credentials:
+
+```bash
+ssh oscorpholding@84.247.8.3
+```
+
+| Property | Value |
+| ------------- | ------------- |
+| **Username** | oscorpholding |
+| **OS** | Ubuntu 24.04 LTS |
+| **Authentication** | Private key |
+
+Once connected, you can proceed with deploying Investbrain using the Docker Compose instructions outlined above.
+
 ## Chat with your holdings
 
 Investbrain offers an AI powered chat assistant that is grounded on *your* investments. This enables you to use AI as a thought partner when making investment decisions. 
