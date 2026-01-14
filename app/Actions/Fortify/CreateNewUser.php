@@ -27,13 +27,6 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        $whitelist = array_filter(array_map('trim', explode(',', env('REGISTRATION_WHITELIST', ''))));
-        if (!empty($whitelist) && isset($input['email']) && !in_array($input['email'], $whitelist, true)) {
-            throw \Illuminate\Validation\ValidationException::withMessages([
-                'email' => __('Registratie niet toegestaan.'),
-            ]);
-        }
-
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
