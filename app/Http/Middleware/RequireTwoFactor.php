@@ -13,14 +13,14 @@ class RequireTwoFactor
     public function handle(Request $request, Closure $next): Response
     {
         $user = $request->user();
-        if (! $user) {
+        if (!$user) {
             return $next($request);
         }
 
-        $isConfirmed = ! empty($user->two_factor_confirmed_at);
+        $isConfirmed = !empty($user->two_factor_confirmed_at);
 
         // Sta alleen setup/challenge/logout + Fortify endpoints toe totdat 2FA bevestigd is.
-        if (! $isConfirmed) {
+        if (!$isConfirmed) {
             if (
                 $request->routeIs('two-factor.setup') ||
                 $request->is('user/confirm-password') ||
